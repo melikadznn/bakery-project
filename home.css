@@ -1,0 +1,48 @@
+/* Home page styles - valid CSS to avoid editor errors */
+
+:root {
+  --bg: #ffffff;
+  --text: #222222;
+  --accent: #c46a2f;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* basic layout helpers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+/* example bakery hero */
+.hero {
+  background: linear-gradient(90deg, rgba(196,106,47,0.08), rgba(196,106,47,0.02));
+  padding: 2rem 0;
+  border-radius: 8px;
+}
+
+/* accessible link style */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  text-decoration: underline;
+}
