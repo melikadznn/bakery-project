@@ -1,0 +1,17 @@
+{
+  "name": "bakery-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "home.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "normalize.css": "^8.0.1",
+    "react-dom": "^19.2.0"
+  }
+}
