@@ -46,7 +46,390 @@ a:focus,
 a:hover {
   text-decoration: underline;
 }
+/* wrapped SECTION */
 
+.wrapped-secction {
+    padding: 0;
+}
+
+.wrapped-container{
+    max-width: 85%;
+    min-height: 600px; 
+    margin: 0 auto;
+    
+    /* تصویر پس‌زمینه و پوشش (Overlay) رنگی بنفش/آبی تیره */
+    background-image: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.4) 0%, /* شروع تیره در بالا */
+        rgba(93, 63, 142, 0.6) 100% /* پایان بنفش تیره در پایین */
+    ), 
+    url('./uploads/bakery-process-3.jpg'); /* مسیر تصویر شما */
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 🎯 ضروری برای position: absolute */
+    position: relative; 
+}
+
+/* کانتینر اصلی محتوای روی تصویر (برای تراز کردن محتوا در پایین) */
+.wrapped-overlay-content {
+    /* استفاده از Position Absolute برای قرار دادن محتوا روی تصویر */
+    position: absolute;
+   
+    /* left: 0;
+    right: 0; */
+    width: 100%;
+    
+    /* تنظیم عرض محتوا و حاشیه داخلی */
+    max-width: 1000px;
+    margin: 0 auto; 
+    padding: 50px 5%; /* پدینگ داخلی برای فاصله از لبه‌ها */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items:center; /* تراز کردن محتوای متنی و شماره 03 در پایین */
+}
+
+
+/* کانتینر متن و عنوان اصلی */
+.wrapped-text-area {
+    color: white; 
+    max-width: 600px; /* برای محدود کردن عرض متن توضیحات */
+}
+
+.wrapped-text-area h1{
+    font-size: 50px;    
+    font-family: "Source Serif 4", serif;
+    /* margin-top: 0;
+    margin-bottom: 20px; */
+    line-height: 1.1;
+}
+
+/* پاراگراف توضیحات کوچک‌تر */
+.wrapped-text-box p {
+    font-size: 16px;
+    line-height: 1.7;
+    top:10%;
+    
+
+    
+    /* برای شبیه‌سازی رنگ خاکستری روی بنفش در تصویر */
+    color: rgba(255, 255, 255, 0.8); 
+}
+
+/* شماره 03 در گوشه بالا سمت راست (نسبت به کانتینر .delivery-overlay-content) */
+.wrapped-number {
+    position: absolute; /* نسبت به .delivery-overlay-content */
+    top: 20%; /* کمی فاصله از بالا */
+    right: 5%; /* کمی فاصله از راست */
+    font-weight: lighter;
+    font-size: 80px;
+    font-family:"Work Sans";
+    font-weight: 300;
+    color: white; 
+    line-height: 1;
+}
+
+
+/* Media Query برای موبایل */
+@media (max-width: 768px) {
+    .delivery-container{
+        min-height: 450px;
+    }
+    .delivery-overlay-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 5%;
+        position: relative; /* در موبایل بهتر است از relative استفاده شود */
+    }
+    .delivery-number {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 100px;
+    }
+    .delivery-text-area {
+        margin-top: 50px; /* فاصله برای جلوگیری از تداخل با شماره 03 */
+    }
+    .delivery-text-area h1 {
+        font-size: 36px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* visit bakery sectio ---------------------- */
+
+.locations-section {
+    padding: 50px 0;
+    text-align: center; 
+    font-family: 'Work Sans', sans-serif; 
+}
+
+
+.locations-header {
+    margin-bottom: 40px;
+    color: #45306b;
+}
+
+.section-subtitle {
+    font-size: 14px;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 40px;
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+
+.location-grid {
+    display: grid;
+    /* ایجاد دو ستون با عرض مساوی */
+    grid-template-columns: 1fr 1fr; 
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+.location-item {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* تصاویر در بالا و اطلاعات در پایین */
+}
+
+
+.location-image img {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover;
+    display: block;
+     transition: transform 0.5s ease-in-out;
+     
+}
+.location-image img:hover{
+    transform: scale(1.1); 
+    opacity: 0.8;
+    
+}
+/* بخش اطلاعات */
+.location-info {
+    padding: 30px;
+    text-align: left;
+    height: 100%; 
+    color: #45306b;
+}
+
+.location-info h3 {
+    font-family: 'Source Serif 4', serif;
+    color: var(--primary-color);
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color:#45306b;
+}
+
+
+.new-york .location-info {
+    background-color: #faf1f2;
+}
+
+.london .location-info {
+    background-color: #f1edf6; 
+}
+
+
+.contact-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.detail-group {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.label {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.value {
+    font-size: 15px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+
+.view-map-btn {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid var(--primary-color);
+    padding: 10px 20px;
+    display: inline-block; 
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.view-map-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .location-grid {
+        /* تبدیل به یک ستون در موبایل */
+        grid-template-columns: 1fr; 
+    }
+    
+    .location-info {
+        text-align: center;
+    }
+    
+    .contact-details {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .detail-group {
+        align-items: center;
+    }
+}
+
+/* ------follow on instagram section------- */
+
+.follow-section-grid {
+    width: 100%;
+    padding: 0;
+}
+
+/* 🎯 ردیف بالا: ساختار 3 ستونی */
+.follow-top-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
+    width: 85%;
+    margin:0 auto;
+    padding: 30px;
+}
+
+/* 🎯 ردیف پایین: ساختار 4 ستونی */
+.follow-down-row {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr); /* 4 ستون برای 4 عکس */
+    gap: 10px; 
+    width: 85%;
+    margin: 0 auto;
+     padding: 30px;
+     
+}
+
+/* استایل‌دهی به تمام آیتم‌های گرید */
+.follow-section-grid .grid-item {
+    overflow: hidden; 
+    gap: 10px;
+}
+
+/* آیتم‌های تصویر */
+.follow-section-grid img {
+    width: 100%;
+    height: 100%;
+    min-height: 250px; /* ارتفاع دلخواه که قبلاً تنظیم کردیم */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1);
+    
+
+}
+
+.follow-section-grid .grid-item:hover img {
+    transform: scale(1.1); 
+    opacity: 0.9;
+    cursor: zoom-in;
+    overflow: hidden;
+}
+
+
+/* باکس CTA مرکزی (.follow-us-cta) */
+.follow-us-cta {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    height: 100%; 
+    min-height: 250px; /* ارتفاع مطابق با تصاویر */
+    gap: 15px;
+    background-color: rgb(244, 240, 245);
+}
+
+/* استایل‌های متن و دکمه (مانند کدهای قبلی) */
+.follow-subtitle {
+    color: var(--primary-color);
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.follow-title {
+    font-family: "Source Serif 4", serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: var(--primary-color);
+    margin: 0 0 25px 0;
+    line-height: 1.1;
+}
+
+.follow-btn {
+    /* ... استایل‌های دکمه ... */
+    height: 47px;
+    width: 150px;
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Media Query: برای نمایش موبایل */
+@media (max-width: 768px) {
+    /* در موبایل، هر دو ردیف به یک ستون تبدیل شوند */
+    .follow-top-row, .follow-down-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .follow-section-grid img, .follow-us-cta {
+        min-height: 250px; 
+    }
+}
 /* delivery section */
 
 .delivery-container{
@@ -65,12 +448,27 @@ a:hover {
 .delivery-txt h3{
     font-size: 20px;    
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    padding-left: 90px;
+    padding-left: 16rem;
 }
 .delivery-txt h1{
-    font-size: 65px;    
+    font-size:50px;    
     font-family:"Source Serif 4", Arial, Helvetica, sans-serif;
-    padding-left: 90px;
+    padding-left: 16rem;
+}
+.shop{
+    margin-left: 16rem;
+    margin-top: 50px;
+    width: 169.539px;
+    height: 55px;
+    border-radius: 6px;
+    background-color: white;
+    color: #45306b;
+    border-width: 0;
+
+}
+.shop:hover{
+    background-color: #45306b;
+    color: white;
 }
 /* footer */
 .main-footer {
