@@ -1,32 +1,245 @@
 /* Home page styles - valid CSS to avoid editor errors */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 
 :root {
   --bg: #ffffff;
   --text: #222222;
   --accent: #c46a2f;
+  --clrpurple: #55328b;
 }
 
 html, body {
   margin: 0;
   padding: 0;
   background: var(--bg);
-  color: var(--text);
+  /* color: var(--text); */
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-weight: 300;
 }
 
-/* basic layout helpers */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
 }
 
+.notice {
+    width: 100% ;
+    height: 46px;
+    background-color: #f9f1f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--clrpurple);
+    font-family: 'work sans';
+    font-weight: 100;
+}
+
 /* header */
-.header {
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    justify-content: space-around;
+    background-color: #f5e9f3;
+  }
+
+.header a {
+    color: var(--clrpurple);
+}
+
+.header-left img {
+  height: 70px;
+}
+.header-center ul {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding-top: 17px ;
+  margin: 0;
+}
+
+.header-center ul li {
+  margin: 0 15px;
+  position: relative;
+}
+
+.header-center ul li a {
+  color: var(--clrpurple);
+  font-size: small;
+  text-decoration: none;
+  padding: 10px 0 20px 0; 
+  display: inline-block;
+  position: relative; 
+  overflow: hidden;
+}
+
+.header-center ul li  > a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: var(--clrpurple); 
+  top: 10;
+  left: 0;
+  transform: translateY(-100%); 
+  opacity: 0;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.header-center ul li > a:hover::after {
+  transform: translateY(calc(100%));
+  opacity: 1;
+}
+
+.header-center ul li a:hover::after {
+    transform: translateY(35px);
+    opacity: 1;
+}
+
+.header-center ul li:first-child a::after {
+  transform: translateY(35px);
+  opacity: 1;
+}
+
+.home-menu {
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 7px;
+  overflow: hidden;
+  background-color: #FFF;
+  /* visibility: hidden;
+  opacity: 0; */
+  transform: translateY(0) translateX(-15%);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: 50;
+  position: absolute;
+  top: 100%;
+  padding: 0;
+  width: 150px;
+  left: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-center ul li:hover .home-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) translateX(-15%);
+}
+
+.home-menu ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.home-menu ul li {
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.home-menu ul a {
+  width: 100%;
+  color: var(--clrpurple);
+  font-size: 10px;
+  font-weight: 300;
+  display: block;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.home-menu ul a:hover {
+  /* background-color: #fafafa;  */
+  background-color: red;
+  color: #000000
+
+  ;
+}
+.header-right a{
+  color: var(--clrpurple);
+}
+
+/* hero section */
+.hero-section {
+  display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
+  align-items: center;
+  background-image: url('uploads/hero-header-bakery.jpg');
+  height: 500px;
+  width: 100%;
+  padding: 20px 80px;
+  font-family: Arial, sans-serif;
+  color: var(--clrpurple); /* Dark purple text */
+  gap: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.content {
+  max-width: 300px;
+}
+
+.subtitle {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: var(--clrpurple);
+  opacity: 0.8;
+}
+
+h1 {
+  font-family: 'source serift 4', bold;
+  font-weight: 700;
+  font-size: 55px;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  color: var(--clrpurple);
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #6e6b7b; /* Medium grayish purple */
+  margin-bottom: 30px;
+  max-width: 420px;
+}
+
+.btn-explore {
+  background-color: #fff;
+  color: #6e6b7b;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  box-shadow: 0 0 0 2px #fff inset;
+}
+
+.btn-explore:hover {
+  background-color: var(--clrpurple);
+  color: #fff;
+  box-shadow: none;
+
+}
+
+.image-container {
+  flex-shrink: 0;
+  position: relative;
+  width: 40%;
+  max-width: 400px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* example bakery hero */
