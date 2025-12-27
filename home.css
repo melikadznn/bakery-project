@@ -46,6 +46,25 @@ a:focus,
 a:hover {
   text-decoration: underline;
 }
+/* start bakeing section(comercial2) */
+.start-baking-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 400px;
+    background-color: #222222;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
 /* wrapped SECTION */
 
 .wrapped-secction {
@@ -53,7 +72,7 @@ a:hover {
 }
 
 .wrapped-container{
-    max-width: 85%;
+    max-width: 90%;
     min-height: 600px; 
     margin: 0 auto;
     
