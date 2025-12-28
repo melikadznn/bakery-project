@@ -49,174 +49,7 @@ a:focus,
 a:hover {
   text-decoration: underline;
 }
-/* start bakeing section(comercial2) */
-.start-baking-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /* width: 100%; */
-    max-width: 1000px;
-    height: 400px;
-    background-color: #222222;
-    margin: 0 auto;
-}
-.process-section {
-    width: 100%;
-    max-width: 100%;
-    margin: 50px 0;
-    padding: 0 20px;
-}
-
-.process-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-/* بخش اول تمام عرض را می‌گیرد */
-.item-01 {
-    grid-column: 1 / -1;
-    height: 450px;
-    background-image: url('./uploads/bakery-process-1.jpg'); /* آدرس عکس خود را بگذارید */
-}
-
-.item-02 {
-    height: 500px;
-    background-image: url('./uploads/bakery-process-2.jpg'); /* آدرس عکس خود را بگذارید */
-}
-
-.testimonial {
-    height: 500px;
-    background-color: #f7f5f8;
-}
-
-.process-item {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-}
-
-/* لایه‌های رنگی روی عکس */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(93, 63, 142, 0.4), rgba(93, 63, 142, 0.8));
-}
-
-.overlay-light {
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.15);
-}
-
-/* کانتینر محتوا برای موقعیت‌دهی مطلق */
-.process-content {
-    position: relative;
-    z-index: 5;
-    height: 100%;
-    padding: 40px; /* فاصله از لبه‌های باکس */
-}
-
-/* 🎯 کلاس‌های موقعیت‌دهی دقیق بر اساس عکس */
-.pos-top-left {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    margin: 0;
-}
-
-.pos-top-right {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-}
-
-.pos-bottom-right {
-    position: absolute;
-    bottom: 240px;
-    right: 40px;
-    max-width: 500px;
-    
-}
-
-.pos-bottom-left {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    max-width: 400px;
-}
-
-/* استایل‌های متن */
-.number {
-    font-size: 80px;
-    font-family: serif;
-    color: rgba(255, 255, 255, 0.4);
-    line-height: 1;
-}
-
-.light-number { color: rgba(0, 0, 0, 0.08); }
-
-.main-title {
-    color: white;
-    font-size: 38px;
-    font-family: 'Source Serif Pro', serif;
-}
-
-.black-text { color: #2d2d2d; font-weight: 700; }
-
-.small-subtitle {
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 10px;
-}
-
-.dark-sub { color: #555; }
-.purple-text { color: #5d3f8e; }
-
-.description {
-    color: white;
-    font-size: 15px;
-    line-height: 1.8;
-}
-
-.text-right { text-align: right; }
-
-/* استایل مخصوص بخش نقل‌قول */
-.quote-container {
-    height: 100%;
-    display: flex;
-    align-items: center; /* وسط‌چین عمودی متن نقل‌قول */
-    justify-content: center;
-}
-
-.quote-text {
-    font-size: 26px;
-    color: #5d3f8e;
-    font-family: 'Source Serif Pro', serif;
-    font-weight: bold;
-    line-height: 1.5;
-    text-align: left;
-}
-
-.author {
-    color: white;
-    font-size: 14px;
-}
-
-/* ریسپانسیو برای موبایل */
-@media (max-width: 800px) {
-    .process-grid { grid-template-columns: 1fr; }
-    .pos-bottom-right, .pos-bottom-left {
-        position: static;
-        margin-top: 200px;
-        text-align: left;
-    }
-}
-
+/* wrapped SECTION */
 
 .wrapped-secction {
     padding: 0;
@@ -323,28 +156,6 @@ position: absolute;
     }
 }
 
-
-
-
-
-
-
-
-
-
-/* visit bakery sectio ---------------------- */
-
-.locations-section {
-    padding: 50px 0;
-    text-align: center; 
-    font-family: 'Work Sans', sans-serif; 
-}
-
-
-.locations-header {
-    margin-bottom: 40px;
-    color: #45306b;
-}
 
 .section-subtitle {
     font-size: 14px;
@@ -827,4 +638,157 @@ position: absolute;
     line-height: 1;
     
 }
-/* end of footer */
+/* responsive parts */
+@media (max-width: 1024px) {
+    .process-grid, 
+    .location-grid {
+        grid-template-columns: 1fr; /* تبدیل دو ستون به یک ستون */
+    }
+
+    .wrapped-overlay-content {
+        padding: 40px;
+    }
+
+    .wrapped-text-area h1 {
+        font-size: 38px;
+    }
+}
+
+/* 📱 موبایل (زیر 768 پیکسل) */
+@media (max-width: 768px) {
+    
+    /* ۱. اصلاح بخش فرآیند (Process Section) */
+    .process-content {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+    }
+
+    /* خروج متن‌ها از حالت Absolute برای جلوگیری از روی هم افتادن */
+    .pos-top-left, 
+    .pos-top-right, 
+    .pos-bottom-right, 
+    .pos-bottom-left {
+        position: static !important;
+        text-align: left !important;
+        max-width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    .number {
+        font-size: 50px;
+        order: -1; /* شماره برود بالا */
+    }
+
+    .main-title {
+        font-size: 26px;
+    }
+
+    /* ۲. اصلاح بخش تحویل (Wrapped Section) */
+    .wrapped-container {
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .wrapped-overlay-content {
+        flex-direction: column;
+        text-align: center;
+        transform: none;
+        left: 0;
+        position: relative;
+    }
+
+    .wrapped-number {
+        display: none; /* حذف عدد بزرگ در موبایل برای تمیزی صفحه */
+    }
+
+    .wrapped-text-area h1 {
+        font-size: 30px;
+    }
+
+    /* ۳. اصلاح بخش لوکیشن */
+    .location-info {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .contact-details {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* ۴. اصلاح بخش اینستاگرام (Instagram Grid) */
+    .follow-top-row, 
+    .follow-down-row {
+        grid-template-columns: 1fr; /* تمام عکس‌ها زیر هم */
+        width: 95%;
+        padding: 10px;
+    }
+
+    .grid-item {
+        height: 250px;
+    }
+
+    .follow-title {
+        font-size: 28px;
+    }
+
+    /* ۵. اصلاح بخش Delivery قدیمی (فاصله 16rem) */
+    .delivery-txt h1, 
+    .delivery-txt h3 {
+        padding-left: 20px !important; /* حذف فاصله ۱۶ رم */
+        text-align: center;
+    }
+
+    .shop {
+        margin: 20px auto;
+        display: block;
+    }
+
+    /* ۶. اصلاح فوتر */
+    .footer-top-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .newsletter-box {
+        margin-right: 0;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+    }
+
+    .footer-bottom-section {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-right: 0;
+    }
+}
+
+/* 📱 موبایل‌های خیلی کوچک (زیر 480 پیکسل) */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 22px;
+    }
+    
+    .quote-text {
+        font-size: 18px;
+    }
+}
