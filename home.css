@@ -1,679 +1,221 @@
 /* Home page styles - valid CSS to avoid editor errors */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 
 :root {
   --bg: #ffffff;
   --text: #222222;
   --accent: #c46a2f;
-  --clrpurple: #55328b;
 }
-*,
-::before,
-::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+*, *::before, *::after {
+    box-sizing: border-box; /* باعث می‌شود پدینگ و بوردر عرض المان را زیاد نکنند */
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  font-weight: 300;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* جلوگیری قطعی از اسکرول افقی */
 }
 
-a {
-    text-decoration: none;
-  }
-
-.notice {
-    width: 100% ;
-    height: 46px;
-    background-color: #f9f1f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--clrpurple);
-    font-family: 'work sans';
-    font-weight: 100;
+/* basic layout helpers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 /* header */
-header {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    justify-content: space-between;
-    padding: 0 30px;
-    background-color: #f5e9f3;
-  }
-
-.header a {
-    color: var(--clrpurple);
-}
-
-.header-left img {
-  height: 70px;
-}
-
-.header-center > ul {
+.header {
   display: flex;
-  justify-content: center;
-  list-style: none;
-  padding-top: 17px ;
-  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
 }
 
-.header-center ul li {
-  margin: 0 15px;
-  position: relative;
+/* example bakery hero */
+.hero {
+  background: linear-gradient(90deg, rgba(196,106,47,0.08), rgba(196,106,47,0.02));
+  padding: 2rem 0;
+  border-radius: 8px;
 }
 
-.header-center ul li > a {
-  color: var(--clrpurple);
-  font-size: small;
-  padding: 10px 0 20px 0; 
-  display: inline-block;
-  position: relative; 
-  overflow: hidden;
+/* accessible link style */
+a {
+  color: var(--accent);
+  text-decoration: none;
 }
 
-.header-center ul li  > a::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: var(--clrpurple); 
-  top: 10;
-  left: 0;
-  transform: translateY(-100%); 
-  opacity: 0;
-  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+a:focus,
+a:hover {
+  text-decoration: underline;
 }
-
-.header-center ul li a:hover::after {
-    transform: translateY(35px);
-    opacity: 1;
-}
-
-.header-center ul li:first-child a::after {
-  transform: translateY(35px);
-  opacity: 1;
-}
-
-/* Hide mobile toggle on desktop */
-.mobile-menu-toggle {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #333;
-  overflow: visible;
-}
-
-.mobile-menu-toggle i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    transform-origin: center;
-    font-size: 1.3rem;
-    line-height: 1;
-    margin: 0;
-    padding: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    color: var(--clrpurple);
-    opacity: 1;
-    pointer-events: none;
-}
-  
-.mobile-menu-toggle i.icon-times {
-    opacity: 0;
-    color: var(--clrpurple);
- }
-
-.mobile-menu-toggle.active i.icon-bars {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(90deg);
-}
-  
-.mobile-menu-toggle.active i.icon-times {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(0deg);
-}
-
-@media (max-width: 902px) {
-/* Show toggle button */
-  .mobile-menu-toggle {
-    display: block;
-    }
-  .header-center-nav {
-    display: none !important;
-    flex-direction: column;
-    background: white;
-    position: absolute;
-    top: 70px; 
-    left: 0;
-     width: 100%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 999;
-    }
-    
-  .header-center-nav > li:hover .home-menu {
-    display: none;
-    }
-
-  .header-center-nav.active {
-    display: flex !important;
-    }
-  
-  .header-center-nav > li {
-    border-bottom: 1px solid #eee;
-    }
-  .header-center-nav > li > a {
+/* start bakeing section(comercial2) */
+.start-baking-container{
     display: flex;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    font-weight: 600;
-    }
-  
-  .home-menu {
-    display: none;
-    background: #f9f9f9;
-    padding-left: 1rem;
-    }
-  
-  .home-menu.active {
-    display: block;
-    }
-  
-  .home-menu ul li a {
-      padding: 0.75rem 1.5rem;
-      display: block;
-    }
-  
-/* Optional caret icon styling */
-  .has-dropdown i {
-      margin-left: 0.5rem;
-      font-size: 0.9rem;
-    }
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+    max-width: 1000px;
+    height: 400px;
+    background-color: #222222;
+    margin: 0 auto;
 }
-
-/* Dropdown Menu Styling */
-.home-menu {
-    display: none;
-    position: absolute;
-    top: 100%; 
-    left: 50%;
-    transform: translateX(-10%);
-    min-width: 150px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 5px 0 0 10px;
-    z-index: 10;
-    border-radius: 0.5rem;
-}
-
-.header-center-nav > li:hover .home-menu {
-    display: block;
-}
-
-.home-menu ul {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-}
-
-.home-menu ul li {
-    padding: 0;
-    margin: 0;
-}
-
-.home-menu a {
+.process-section {
     width: 100%;
-    height: 100%;
-    display: block;
-    padding: 0;
-    color: #333;
-    text-transform: capitalize;
-    padding: 10px 25px;
-    font-weight: 500;
-    font-size: 0.9rem;
+    max-width: 100%;
+    margin: 50px 0;
+    padding: 0 20px;
 }
 
-.home-menu a:hover {
-    background-color: #fcfcfc;
-    color: #000000
+.process-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
 }
 
-.header-right a{
-  color: var(--clrpurple);
-  padding-right: 1.5rem;
+/* بخش اول تمام عرض را می‌گیرد */
+.item-01 {
+    grid-column: 1 / -1;
+    height: 450px;
+    background-image: url('./uploads/bakery-process-1.jpg'); /* آدرس عکس خود را بگذارید */
 }
 
+.item-02 {
+    height: 500px;
+    background-image: url('./uploads/bakery-process-2.jpg'); /* آدرس عکس خود را بگذارید */
+}
 
-#navbar {
+.testimonial {
+    height: 500px;
+    background-color: #f7f5f8;
+}
+
+.process-item {
     position: relative;
-    transition: all 0.3s ease; 
-    width: 100%;
-    z-index: 1000;
-}
-
-#navbar.scrolled {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: var(--bg);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* hero section */
-.hero-section {
-    display: flex;
-    background-color: #f5e9f3; 
-    background-image: url('uploads/hero-header-bakery.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 50% 10%; 
     background-size: cover;
-    height: 950px;
-    width: 100%;
-    padding: 80px 5%; 
-    font-family: Arial, sans-serif;
-    color: var(--clrpurple); 
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.content {
-  max-width: 600px;
-}
-
-.subtitle {
-  display: block;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  color: #000000;
-  opacity: 0.8;
-}
-
-h1 {
-  font-family: 'source serif 4', bold;
-  font-weight: 700;
-  font-size: 55px;
-  line-height: 1.2;
-  margin: 0 0 20px 0;
-  color: var(--clrpurple);
-}
-
-p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #6e6b7b; /* Medium grayish purple */
-  margin-bottom: 30px;
-  max-width: 580px;
-}
-
-.btn-explore {
-  background-color: #fff;
-  color: #6e6b7b;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.25s ease, color 0.25s ease;
-  box-shadow: 0 0 0 2px #fff inset;
-}
-
-.btn-explore:hover {
-  background-color: var(--clrpurple);
-  color: #fff;
-  box-shadow: none;
-
-}
-
-.image-container {
-  flex-shrink: 0;
-  position: relative;
-  max-width: 300px;
-}
-
-.image-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-.products1 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 3.5rem;
-    padding: 8rem 6rem 8rem;
-}
-
-.products-text {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    margin-top: 0;
-    max-width: 550px;
-}
-
-.small-title {
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: #888;
-}
-
-.products-text h2 {
-    font-family: 'source serif 4';
-    color: var(--clrpurple);
-    font-size: 38px;
-    line-height: 1.2;
-    font-weight: 900;
-    margin-bottom: 20px;
-}
-
-.btn {
-    font-family: 'work sans';
-    margin-top: 15px;
-    padding: 15px 18px;
-    background: var(--clrpurple);
-    color: white;
-    border: none;
-    width: auto;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 300;
-    font-size: 14px;
-    align-self: flex-start;
-    transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-.btn:hover {
-    background: var(--bg);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    color: var(--clrpurple);
-}
-
-.products-gallery {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.product-card1 {
-    text-align: center;
-    width: 500px;
-    max-height: 600px;
-}
-
-.product-card2 {
-    text-align: center;
-    width: 300px;
-    max-height: 400px;
-}
-
-.img-container {
+    background-position: center;
     overflow: hidden;
-    border-radius: 6px;
+}
+
+/* لایه‌های رنگی روی عکس */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(93, 63, 142, 0.4), rgba(93, 63, 142, 0.8));
+}
+
+.overlay-light {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* کانتینر محتوا برای موقعیت‌دهی مطلق */
+.process-content {
     position: relative;
-    cursor: pointer;
-}
-
-.img-container img {
-    width: 100%;
+    z-index: 5;
     height: 100%;
-    object-fit: cover;
-    transition: none;
-    transform: scale(1);
-    opacity: 1;
-    will-change: transform, opacity;
+    padding: 40px; /* فاصله از لبه‌های باکس */
 }
 
-.img-container:hover img {
-    opacity: 1;
-}
-
-
-.img-container.fade-out img { 
-    opacity: 0.85; 
-    transform: scale(1);
-
-  }
-
-.product-cards h3 {
-    font-family: 'source serif 4';
-    color: var(--clrpurple);
-    font-size: 18px;
-    font-weight: 700;
-    margin-top: 1rem;
-}
-  
-.price {
-    font-family: 'work sans';
-    color: var(--clrpurple);
-    font-size: 16px;
-    margin-top: 0.25rem;
-}
-
-/* --- Responsive Styles for Products Section (.products1) --- */
-@media (max-width: 1024px) {
-    .products1 {
-        flex-direction: column; 
-        height: auto; 
-        padding: 3rem 1.5rem 2rem; 
-        gap: 3rem;
-    }
-
-  .products-text {
-    align-self: center; 
-    text-align: center; 
-    max-width: 100%; 
-    }
-    
-  .small-title, 
-  .products-text h2 {
-    text-align: center; 
-    }
-    
-  .btn {
-    margin: 1.5rem auto 0;
-    width: 60%; 
-    max-width: 250px;
-    }
-
-  .products-gallery {
-    flex-direction: column; 
-    height: auto; 
-    gap: 3rem; 
-    }
-
-  .product-card {
-    width: 100%; 
-    max-width: 450px;
-    margin: 0 auto;
-    }
-    
-  .img-container {
-    height: 350px; 
-    }
-}
-
-@media (max-width: 768px) {
-    .products1 {
-        flex-direction: column; 
-        height: auto; 
-        padding: 3rem 1.5rem 2rem; 
-        gap: 3rem;
-    }
-
-  .products-text {
-    align-self: center; 
-    text-align: center; 
-    max-width: 100%; 
-    }
-    
-  .small-title, 
-  .products-text h2 {
-    text-align: center; 
-    }
-    
-  .btn {
-    margin: 1.5rem auto 0;
-    width: 60%; 
-    max-width: 250px;
-    }
-
-  .products-gallery {
-    flex-direction: column; 
-    height: auto; 
-    gap: 3rem; 
-    }
-
-  .product-card {
-    width: 100%; 
-    max-width: 450px;
-    margin: 0 auto;
-    }
-    
-  .img-container1 {
-    height: 350px; 
-    }
-}
-
-.container {
-    margin: 5rem 8rem;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-  .section-header h5 {
-    font-family: 'work sans';
-    font-weight: 700;
-    color: #676371;
-    margin: 0 0 1rem;
-}
-
-.section-header h1 {
-    font-family: 'source serif 4';
-    font-size: 2.5rem;
-    color: var(--clrpurple);
+/* 🎯 کلاس‌های موقعیت‌دهی دقیق بر اساس عکس */
+.pos-top-left {
+    position: absolute;
+    top: 40px;
+    left: 40px;
     margin: 0;
 }
 
-.image-grid {
-    display: flex;
-    gap: 3rem;
-    justify-content: center;
-    flex-wrap: wrap;
+.pos-top-right {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+}
 
-}
-.image-card {
-    position: relative;
-    flex: 1 1 47%;
-    height: 800px;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 6px 18px rgba(85,50,139,0.15);
-    transition: box-shadow 0.3s ease;
-    color: inherit;
-    text-decoration: none;
-}
-  .image-card:hover {
-    box-shadow: 0 10px 28px rgba(85,50,139,0.35);
-  }
-  .image-card .image {
+.pos-bottom-right {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    display: block;
-    transform: scale(1);
-  }
-  .default-image {
-    opacity: 1;
-    z-index: 2;
-  }
-  .hover-image {
-    opacity: 0;
-    z-index: 0;
-  }
-  .overlay {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    bottom: 240px;
+    right: 40px;
+    max-width: 500px;
+    
+}
+
+.pos-bottom-left {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 40px;
+    left: 40px;
+    max-width: 400px;
+}
+
+/* استایل‌های متن */
+.number {
+    font-size: 80px;
+    font-family: serif;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1;
+}
+
+.light-number { color: rgba(0, 0, 0, 0.08); }
+
+.main-title {
     color: white;
-    opacity: 0;
-    transform: translateY(0);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
-    pointer-events: none;
-    z-index: 3;
-  }
-  .overlay.show {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
+    font-size: 38px;
+    font-family: 'Source Serif Pro', serif;
+}
 
-  .overlay h3 {
-    font-family: 'source serif 4';
-    font-size: 2rem;
-    margin-bottom: 1.3rem;
-    font-weight: 700;
-    line-height: 1.1;
-  }
+.black-text { color: #2d2d2d; font-weight: 700; }
 
-  .overlay h6 {
-    margin-bottom: 1.3rem;
-  }
-  .overlay > .btn {
-    align-self: center;
-  }
-  @media (max-width: 960px) {
-    .image-grid {
-      flex-direction: column;
-      align-items: center;
-    }
-    .image-card {
-      max-width: 95vw;
-      flex: 1 1 100%;
-      margin-bottom: 2rem;
-    }
-  }
+.small-subtitle {
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
 
-/* wrapped SECTION */
+.dark-sub { color: #555; }
+.purple-text { color: #5d3f8e; }
+
+.description {
+    color: white;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.text-right { text-align: right; }
+
+/* استایل مخصوص بخش نقل‌قول */
+.quote-container {
+    height: 100%;
+    display: flex;
+    align-items: center; /* وسط‌چین عمودی متن نقل‌قول */
+    justify-content: center;
+}
+
+.quote-text {
+    font-size: 26px;
+    color: #5d3f8e;
+    font-family: 'Source Serif Pro', serif;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.author {
+    color: white;
+    font-size: 14px;
+}
+
+
+
 .wrapped-secction {
     padding: 0;
 }
 
 .wrapped-container{
-    max-width: 85%;
-    min-height: 600px; 
+    max-width: 95%;
+    min-height: 400px; 
     margin: 0 auto;
     
     /* تصویر پس‌زمینه و پوشش (Overlay) رنگی بنفش/آبی تیره */
@@ -687,28 +229,21 @@ p {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* 🎯 ضروری برای position: absolute */
     position: relative; 
 }
 
 /* کانتینر اصلی محتوای روی تصویر (برای تراز کردن محتوا در پایین) */
 .wrapped-overlay-content {
-    /* استفاده از Position Absolute برای قرار دادن محتوا روی تصویر */
-    position: absolute;
-   
-    /* left: 0;
-    right: 0; */
+position: absolute;
+    bottom: 10;
+    left: 50%;
+    transform: translateX(-50%); /* برای وسط چین کردن دقیق */
     width: 100%;
-    
-    /* تنظیم عرض محتوا و حاشیه داخلی */
-    max-width: 1000px;
-    margin: 0 auto; 
-    padding: 50px 5%; /* پدینگ داخلی برای فاصله از لبه‌ها */
-    
+    max-width: 1200px; /* مطابق با کانتینرهای دیگر */
+    padding: 50px 20px;
     display: flex;
     justify-content: space-between;
-    align-items:center; /* تراز کردن محتوای متنی و شماره 03 در پایین */
+    align-items: center;
 }
 
 
@@ -716,13 +251,14 @@ p {
 .wrapped-text-area {
     color: white; 
     max-width: 600px; /* برای محدود کردن عرض متن توضیحات */
+    
 }
 
 .wrapped-text-area h1{
     font-size: 50px;    
     font-family: "Source Serif 4", serif;
-    /* margin-top: 0;
-    margin-bottom: 20px; */
+    margin-top: 0;
+    margin-bottom: 20px;
     line-height: 1.1;
 }
 
@@ -731,6 +267,7 @@ p {
     font-size: 16px;
     line-height: 1.7;
     top:10%;
+    padding-top: 20px;
     
 
     
@@ -777,28 +314,6 @@ p {
     }
 }
 
-
-
-
-
-
-
-
-
-
-/* visit bakery sectio ---------------------- */
-
-.locations-section {
-    padding: 50px 0;
-    text-align: center; 
-    font-family: 'Work Sans', sans-serif; 
-}
-
-
-.locations-header {
-    margin-bottom: 40px;
-    color: #45306b;
-}
 
 .section-subtitle {
     font-size: 14px;
@@ -958,11 +473,11 @@ p {
 /* 🎯 ردیف پایین: ساختار 4 ستونی */
 .follow-down-row {
     display: grid;
-    grid-template-columns: repeat(4, 2fr); /* 4 ستون برای 4 عکس */
+    grid-template-columns: repeat(4, 1fr); /* از 2fr به 1fr تغییر یافت */
     gap: 10px; 
-    width: 85%;
+    width: 85%; /* یا 100% */
     margin: 0 auto;
-     padding: 30px;
+    padding: 30px 0;
      
 }
 
@@ -1136,6 +651,7 @@ p {
 }
 
 .footer-menu a {
+    text-decoration: none;
     color: #4c4c4c;
     font-size: 14px;
     font-weight: 500;
@@ -1226,6 +742,7 @@ p {
 
 .copyright a {
     color: #888;
+    text-decoration: none;
 }
 
 
@@ -1240,6 +757,7 @@ p {
 .social-icons a {
     color: #5d3f8e;
     font-size: 18px;
+    text-decoration: none;
     transition: color 0.3s;
 }
 
@@ -1278,4 +796,157 @@ p {
     line-height: 1;
     
 }
-/* end of footer */
+/* responsive parts */
+@media (max-width: 1024px) {
+    .process-grid, 
+    .location-grid {
+        grid-template-columns: 1fr; /* تبدیل دو ستون به یک ستون */
+    }
+
+    .wrapped-overlay-content {
+        padding: 40px;
+    }
+
+    .wrapped-text-area h1 {
+        font-size: 38px;
+    }
+}
+
+/* 📱 موبایل (زیر 768 پیکسل) */
+@media (max-width: 768px) {
+    
+    /* ۱. اصلاح بخش فرآیند (Process Section) */
+    .process-content {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+    }
+
+    /* خروج متن‌ها از حالت Absolute برای جلوگیری از روی هم افتادن */
+    .pos-top-left, 
+    .pos-top-right, 
+    .pos-bottom-right, 
+    .pos-bottom-left {
+        position: static !important;
+        text-align: left !important;
+        max-width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    .number {
+        font-size: 50px;
+        order: -1; /* شماره برود بالا */
+    }
+
+    .main-title {
+        font-size: 26px;
+    }
+
+    /* ۲. اصلاح بخش تحویل (Wrapped Section) */
+    .wrapped-container {
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .wrapped-overlay-content {
+        flex-direction: column;
+        text-align: center;
+        transform: none;
+        left: 0;
+        position: relative;
+    }
+
+    .wrapped-number {
+        display: none; /* حذف عدد بزرگ در موبایل برای تمیزی صفحه */
+    }
+
+    .wrapped-text-area h1 {
+        font-size: 30px;
+    }
+
+    /* ۳. اصلاح بخش لوکیشن */
+    .location-info {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .contact-details {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* ۴. اصلاح بخش اینستاگرام (Instagram Grid) */
+    .follow-top-row, 
+    .follow-down-row {
+        grid-template-columns: 1fr; /* تمام عکس‌ها زیر هم */
+        width: 95%;
+        padding: 10px;
+    }
+
+    .grid-item {
+        height: 250px;
+    }
+
+    .follow-title {
+        font-size: 28px;
+    }
+
+    /* ۵. اصلاح بخش Delivery قدیمی (فاصله 16rem) */
+    .delivery-txt h1, 
+    .delivery-txt h3 {
+        padding-left: 20px !important; /* حذف فاصله ۱۶ رم */
+        text-align: center;
+    }
+
+    .shop {
+        margin: 20px auto;
+        display: block;
+    }
+
+    /* ۶. اصلاح فوتر */
+    .footer-top-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .newsletter-box {
+        margin-right: 0;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+    }
+
+    .footer-bottom-section {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-right: 0;
+    }
+}
+
+/* 📱 موبایل‌های خیلی کوچک (زیر 480 پیکسل) */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 22px;
+    }
+    
+    .quote-text {
+        font-size: 18px;
+    }
+}
