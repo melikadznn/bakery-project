@@ -665,286 +665,145 @@ p {
       margin-bottom: 2rem;
     }
   }
+/* melika's parts start  */
+/* process section  */
+ /* ===================== Process Section ===================== */
 
-/* wrapped SECTION */
-  .process-section {
-      width: 100%;
-      max-width: 1250px;
-      margin: 50px auto;
-      padding: 0 20px;
-  }
-  
-  .process-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-  }
-  
-  /* بخش اول تمام عرض را می‌گیرد */
-  .item-01 {
-      grid-column: 1 / -1;
-      height: 450px;
-      background-image: url('./uploads/bakery-process-1.jpg'); 
-  }
-  
-  .item-02 {
-      height: 500px;
-      background-image: url('./uploads/bakery-process-2.jpg'); 
-  }
-  
-  .testimonial {
-      height: 500px;
-      background-color: #f7f5f8;
-  }
-  
-  .process-item {
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      overflow: hidden;
-  }
-  
-  /* لایه‌های رنگی روی عکس */
-  .overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, rgba(93, 63, 142, 0.4), rgba(93, 63, 142, 0.8));
-  }
-  
-  .overlay-light {
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.15);
-  }
-  
-  /* کانتینر محتوا برای موقعیت‌دهی مطلق */
-  .process-content {
-      position: relative;
-      z-index: 5;
-      height: 100%;
-      padding: 40px; /* فاصله از لبه‌های باکس */
-  }
-  
-  /* 🎯 کلاس‌های موقعیت‌دهی دقیق بر اساس عکس */
-  .pos-top-left {
-      position: absolute;
-      top: 40px;
-      left: 40px;
-      margin: 0;
-  }
-  
-  .pos-top-right {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-  }
-  
-  .pos-bottom-right {
-      position: absolute;
-      bottom: 40px;
-      right: 40px;
-      max-width: 500px;
-  }
-  
-  .pos-bottom-left {
-      position: absolute;
-      bottom: 40px;
-      left: 40px;
-      max-width: 400px;
-  }
-  
-  /* استایل‌های متن */
-  .number {
-      font-size: 80px;
-      font-family: serif;
-      color: rgba(255, 255, 255, 0.4);
-      line-height: 1;
-  }
-  
-  .light-number { color: rgba(0, 0, 0, 0.08); }
-  
-  .main-title {
-      color: white;
-      font-size: 38px;
-      font-family: 'Source Serif Pro', serif;
-  }
-  
-  .black-text { color: #2d2d2d; font-weight: 700; }
-  
-  .small-subtitle {
-      font-size: 13px;
-      letter-spacing: 2px;
-      font-weight: bold;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 10px;
-  }
-  
-  .dark-sub { color: #555; }
-  .purple-text { color: #5d3f8e; }
-  
-  .description {
-      color: white;
-      font-size: 15px;
-      line-height: 1.8;
-  }
-  
-  .text-right { text-align: right; }
-  
-  /* استایل مخصوص بخش نقل‌قول */
-  .quote-container {
-      height: 100%;
-      display: flex;
-      align-items: center; /* وسط‌چین عمودی متن نقل‌قول */
-      justify-content: center;
-  }
-  
-  .quote-text {
-      font-size: 26px;
-      color: #5d3f8e;
-      font-family: 'Source Serif Pro', serif;
-      font-weight: bold;
-      line-height: 1.5;
-      text-align: left;
-  }
-  
-  .author {
-      color: #888;
-      font-size: 14px;
-  }
-  
-  /* ریسپانسیو برای موبایل */
-  @media (max-width: 800px) {
-      .process-grid { grid-template-columns: 1fr; }
-      .pos-bottom-right, .pos-bottom-left {
-          position: static;
-          margin-top: 200px;
-          text-align: left;
-      }
-  }
-  /* wrapped SECTION */
-  
-  .wrapped-secction {
-      padding: 0;
-  }
-  
-  .wrapped-container{
-      max-width: 95%;
-      min-height: 400px; 
-      margin: 0 auto;
-      
-      /* تصویر پس‌زمینه و پوشش (Overlay) رنگی بنفش/آبی تیره */
-      background-image: linear-gradient(
-          to bottom, 
-          rgba(0, 0, 0, 0.4) 0%, /* شروع تیره در بالا */
-          rgba(93, 63, 142, 0.6) 100% /* پایان بنفش تیره در پایین */
-      ), 
-      url('./uploads/bakery-process-3.jpg'); /* مسیر تصویر شما */
-      
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative; 
-  }
-  
-  /* کانتینر اصلی محتوای روی تصویر (برای تراز کردن محتوا در پایین) */
-  .wrapped-overlay-content {
+.process-section {
+  max-width: 1250px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "item1 item1"
+    "item2 quote"
+    "item3 item3";
+  gap: 25px;
+}
+
+
+/* ---------- Items ---------- */
+
+.process-item {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Images */
+
+.item-01 {
+  grid-area: item1;
+  height: 420px;
+   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(93,63,142,0.5)),url("./uploads/bakery-process-1.jpg");
+}
+
+.item-02 {
+  grid-area: item2;
+  height: 420px;
+   background-image: url("./uploads/bakery-process-2.jpg");
+}
+
+.item-03 {
+  grid-area: item3;
+  height: 420px;
+   background-image:linear-gradient(rgba(0,0,0,0.3), rgba(93,63,142,0.5)),
+    url("./uploads/bakery-process-3.jpg");
+}
+
+.process-quote {
+  grid-area: quote;
+}
+
+/* ---------- Overlay ---------- */
+
+.process-overlay {
   position: absolute;
-      bottom: 10;
-      left: 50%;
-      transform: translateX(-50%); /* برای وسط چین کردن دقیق */
-      width: 100%;
-      max-width: 1200px; /* مطابق با کانتینرهای دیگر */
-      padding: 50px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  inset: 0;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+}
+
+.process-overlay h4 {
+  font-size: 18px;
+  color: white;
+  margin-top: 15px;
+}
+
+.process-overlay p {
+    color: white;
+  font-size: 13px;
+  max-width: 380px;
+  line-height: 1.6;
+  padding-top: 50px;
+}
+
+.process-number {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 26px;
+  opacity: 0.8;
+}
+
+/* ---------- Quote Box ---------- */
+
+.process-quote {
+  background: #f7f5fa;
+  padding: 60px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* .process-quote small {
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  color: white;
+} */
+
+.process-quote blockquote {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #55328b;
+  margin-bottom: 20px;
+}
+
+.process-quote .author {
+  font-size: 13px;
+  color: #555;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+  .process-grid {
+    grid-template-areas:
+      "item1"
+      "item2"
+      "quote"
+      "item3";
+    grid-template-columns: 1fr;
   }
-  
-  
-  /* کانتینر متن و عنوان اصلی */
-  .wrapped-text-area {
-      color: white; 
-      max-width: 600px; /* برای محدود کردن عرض متن توضیحات */
-      
-  }
-  
-  .wrapped-text-area h1{
-      font-size: 50px;    
-      font-family: "Source Serif 4", serif;
-      margin-top: 0;
-      margin-bottom: 20px;
-      line-height: 1.1;
-  }
-  
-  /* پاراگراف توضیحات کوچک‌تر */
-  .wrapped-text-box p {
-      font-size: 16px;
-      line-height: 1.7;
-      top:10%;
-      padding-top: 20px;
-      
-  
-      
-      /* برای شبیه‌سازی رنگ خاکستری روی بنفش در تصویر */
-      color: rgba(255, 255, 255, 0.8); 
-  }
-  
-  /* شماره 03 در گوشه بالا سمت راست (نسبت به کانتینر .delivery-overlay-content) */
-  .wrapped-number {
-      position: absolute; /* نسبت به .delivery-overlay-content */
-      top: 20%; /* کمی فاصله از بالا */
-      right: 5%; /* کمی فاصله از راست */
-      font-weight: lighter;
-      font-size: 80px;
-      font-family:"Work Sans";
-      font-weight: 300;
-      color: white; 
-      line-height: 1;
-  }
-  
-  
-  /* Media Query برای موبایل */
-  @media (max-width: 768px) {
-      .delivery-container{
-          min-height: 450px;
-      }
-      .delivery-overlay-content {
-          flex-direction: column;
-          align-items: flex-start;
-          padding: 30px 5%;
-          position: relative; /* در موبایل بهتر است از relative استفاده شود */
-      }
-      .delivery-number {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          font-size: 100px;
-      }
-      .delivery-text-area {
-          margin-top: 50px; /* فاصله برای جلوگیری از تداخل با شماره 03 */
-      }
-      .delivery-text-area h1 {
-          font-size: 36px;
-      }
-  }
-  
-  
-  .section-subtitle {
-      font-size: 14px;
-      color: var(--primary-color);
-      letter-spacing: 2px;
-      margin: 0;
-      text-transform: uppercase;
-  }
-  
-  .section-title {
-      font-family: 'Source Serif 4', serif;
-      font-size: 40px;
-      color: var(--primary-color);
-      margin: 10px 0;
-  }
-  
-  
+}
+.header-top{
+    color:#55328b;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+ 
   .location-grid {
       display: grid;
       /* ایجاد دو ستون با عرض مساوی */
