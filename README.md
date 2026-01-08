@@ -1,4 +1,4 @@
-# Bakery Website Project this project is in process
+# Bakery Website Project (this project is in process)
 
 ## 📌 Description
 This project is a bakery website developed as a web development practice project.
